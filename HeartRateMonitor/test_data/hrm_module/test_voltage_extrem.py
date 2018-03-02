@@ -1,5 +1,5 @@
 def test_voltage_extreme():
-    from myrhm import Myrhm
+    from hrm_module.myrhm import Myrhm
     import math
     import pytest
     extreme_output_1 = voltage_extremes([-5, 2, 6, 1, -7, 10])
@@ -12,3 +12,5 @@ def test_voltage_extreme():
         voltage_extreme(math.sqrt(2), math.sqrt(-5), math.sqrt(8))
     with pytest.raises(TypeError):
         voltage_extremes('sdj', 5, 9, 5, 9, 5)
+    with pytest.raises(ImportError):
+        import MyLittlePony

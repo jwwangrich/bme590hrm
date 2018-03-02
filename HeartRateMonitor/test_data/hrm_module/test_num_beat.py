@@ -1,5 +1,5 @@
 def test_num_beat():
-    from myrhm import Myrhm
+    from hrm_module.myrhm import Myrhm
     import math
     import pytest
     numbeat_output_1 = num_beat([1, 2, 3, 4, 5])
@@ -8,3 +8,5 @@ def test_num_beat():
         duration(-5)
     with pytest.raises(TypeError):
         duration('number')
+    with pytest.raises(ImportError):
+        import MyLittlePony
