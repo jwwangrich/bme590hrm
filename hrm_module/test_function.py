@@ -1,5 +1,7 @@
 from hrm_module.myhrm import Myhrm
-def test_duration():
+
+
+def test_hrm():
     import math
     import pytest
     from hrm_module.read import collection
