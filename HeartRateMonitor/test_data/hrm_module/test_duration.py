@@ -1,4 +1,4 @@
-import MyHRM
+import myhrm
 
 
 def test_duration():
