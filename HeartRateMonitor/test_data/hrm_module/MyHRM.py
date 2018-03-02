@@ -3,8 +3,8 @@ import csv
 import numpy as np
 import math
 import pandas as pd
-from num_beat import num_beat
-from mean_hr_bpm import mean_hr_bpm
+
+peak_indexes= ""
 
 class Myhrm(object):
     """The summary line for a class docstring should fit on one line.
@@ -33,13 +33,13 @@ class Myhrm(object):
         self.time = time
         self.voltage = voltage
         self.minutes = minutes
-        self.duration_result = 0
-        self.peak_indexes = []
-        self.num_beat_result = 0
-        self.beat_result = []
+        self.duration()
+        self.num_beat()
+        self.voltage_extremes()
+        self.mean_hr_bpm()
 
     def voltage_extremes(self):
-        self.voltage_extremes_result = tuple(min(self.voltage); max(self.voltage))
+        self.voltage_extremes_result = min(self.voltage), max(self.voltage)
         return self.voltage_extremes_result
 
     def duration(self):
@@ -58,11 +58,10 @@ class Myhrm(object):
                 :param:  volarr_oned : transfer into 1D array
                 :returns: return the max two adjacent diff value from input num_list
                 :raises: ImportError
-                :raises: TypeError
-                :raises: ValueError
             """
         import numpy as np
         from scipy.signal import find_peaks_cwt
+        global peak_indexes
         try:
             import logging
         except ImportError:
@@ -77,15 +76,20 @@ class Myhrm(object):
         if len(self.time) == 0:
             logging.warning("list is empty")
         try:
-        max_index = np.argmax(self.voltage)
-        max_wave = np.array([self.voltage[max_index - 2:max_index + 2]])
-        max_wave_oned = np.ravel(max_wave)
-        volarr_oned = np.ravel(self.voltage)
-        peak = np.correlate(max_wave_oned, volarr_oned, mode='full')
-        cb = np.array(peak)
-        self.peak_indexes = find_peaks_cwt(cb, np.arange(1, 400))
-        self.num_beat_result = len(self.peak_indexes)
-        return self.num_beat_result
+            max_index = np.argmax(self.voltage)
+            max_wave = np.array([self.voltage[max_index - 2:max_index + 2]])
+            max_wave_oned = np.ravel(max_wave)
+            volarr_oned = np.ravel(self.voltage)
+            peak = np.correlate(max_wave_oned, volarr_oned, mode='full')
+            cb = np.array(peak)
+            peak_indexes = find_peaks_cwt(cb, np.arange(1, 400))
+            self.num_beat_result = len(peak_indexes)
+            return self.num_beat_result
+        except TypeError:
+            pass
+        except ValueError:
+            pass
+        logging.info('Status quo')
 
     def mean_hr_bpm(self):
         """ count the value of the number of beats
@@ -93,13 +97,12 @@ class Myhrm(object):
                 make an array with five point with the max vol as center index
                 utilize correlate to find peaks
 
-                :param:  num_list: list of values
-                :param:  i : the index in num_list
-                :param:  j : the index i + 1 in num_list
-                :returns: return the max two adjacent diff value from input num_list
+                :param:  RR_list: heart rate list
+                :param:  cnt: numbers of counts of the heart beats
+                :param:  RR_interval: heart beat interval
+                :param:  ms_dist: minutes rate
+                :returns: return the total numbers of heart beats in a given time(minutes), called BPM
                 :raises: ImportError
-                :raises: TypeError
-                :raises: ValueError
             """
         try:
             import logging
@@ -123,7 +126,3 @@ class Myhrm(object):
             cnt += 1
         self.mean_hr_bpm_result = cnt
         return self.mean_hr_bpm_result
-
-    def beat(self):
-        self.beat_result = tuple(np.where[self.peak_indexes])
-        return self.beat_result
