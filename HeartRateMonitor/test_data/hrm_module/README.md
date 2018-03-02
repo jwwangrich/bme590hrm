@@ -4,9 +4,12 @@ This README details the information for the use of the module in this folder
 Put the desire patients ECG data into this module and in the python environment type "from read import main",
 Then, type "main()", enter the user-specified number of minutes. After these steps, you will get the json file and all the information that you want.
 
+
+
+
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) [2018] [JenWei Wang(Rich)]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
