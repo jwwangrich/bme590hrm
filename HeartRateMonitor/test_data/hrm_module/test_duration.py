@@ -1,7 +1,5 @@
-import myhrm
-
-
 def test_duration():
+    from myrhm import Myrhm
     import math
     import pytest
     duration_output_1 = duration([1, 2, 3, 4, 5])
@@ -10,5 +8,3 @@ def test_duration():
         duration(-2)
     with pytest.raises(TypeError):
         duration('time')
-    with pytest.raises(ImportError):
-        import MyLittlePony
