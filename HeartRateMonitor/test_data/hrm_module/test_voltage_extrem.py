@@ -12,3 +12,5 @@ def test_voltage_extreme():
         voltage_extreme(math.sqrt(2), math.sqrt(-5), math.sqrt(8))
     with pytest.raises(TypeError):
         voltage_extremes('sdj', 5, 9, 5, 9, 5)
+    with pytest.raises(ImportError):
+        import MyLittlePony

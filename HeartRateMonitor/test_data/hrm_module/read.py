@@ -22,7 +22,7 @@ def collection():
         voltagearr = df["Voltage"].values
         str_minute = input()
         minutes = float(str_minute)
-        from hrm_module.myhrm import Myhrm
+        from myhrm import Myhrm
         patient = Myhrm(timearr, voltagearr, minutes)
         logging.info("function run normally")
         json_add(patient.voltage_extremes_result,
