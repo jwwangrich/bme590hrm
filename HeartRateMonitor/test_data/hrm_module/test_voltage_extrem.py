@@ -1,5 +1,7 @@
+import MyHRM
+
+
 def test_voltage_extreme():
-    from MyHRM.myhrm import voltage_extremes
     import math
     import pytest
     extreme_output_1 = voltage_extremes([-5, 2, 6, 1, -7, 10])
