@@ -4,8 +4,6 @@ files = ""
 
 
 def main():
-    if __name__ == '__main__':
-        main()
     collection()
 
 
@@ -46,3 +44,7 @@ def json_add(voltage_extremes_result, duration_result, num_beat_result,
     filename = json.dumps(myhrm_info)
     file.write(filename)
     return file
+
+
+if __name__ == '__main__':
+    main()

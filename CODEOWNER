@@ -2,13 +2,13 @@
 # Each line is a file pattern followed by one or more owners.
 
 # These owners will be the default owners for everything in the repo.
-*       @mlp6 @microelastic @ad12 
+*       @mlp6 @microelastic @ad12 @davidbradway 
 
 # Order is important. The last matching pattern has the most precedence.
 # So if a pull request only touches javascript files, only these owners
 # will be requested to review.
-*.js    @mlp6 @microelastic @ad12 
+*.js    @mlp6 @microelastic @ad12 @davidbradway
 
 # In this example, @octocat owns any file in an apps directory
 # anywhere in your repository.
-apps/ @mlp6 @microelastic @ad12 
+apps/ @mlp6 @microelastic @ad12 @davidbradway
