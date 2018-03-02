@@ -59,7 +59,7 @@ class Myhrm(object):
                 :param:  maxwave : the array of specific index arrange
                 :param:  maxwave_oned : transfer into 1D array
                 :param:  volarr_oned : transfer into 1D array
-                :returns: return the max two adjacent diff value from input num_list
+                :returns: return the number of ECG strip
                 :raises: ImportError
             """
         import numpy as np
@@ -104,8 +104,8 @@ class Myhrm(object):
                 :param:  cnt: numbers of counts of the heart beats
                 :param:  RR_interval: heart beat interval
                 :param:  ms_dist: minutes rate
-                :returns: return the total numbers of heart beats in a given time(minutes),
-                called BPM
+                :returns: return the total numbers of heart beats in a given
+                time(minutes), called BPM
                 :raises: ImportError
             """
         try:
@@ -125,8 +125,7 @@ class Myhrm(object):
         cnt = 0
         while (cnt < (len(peak_indexes) - 1)):
             RR_interval = (peak_indexes[cnt + 1] - peak_indexes[cnt])
-            ms_dist = ((RR_interval / self.duration_result)
-                       * 60 * self.minutes)
+            ms_dist = ((RR_interval / self.duration_result)*60*self.minutes)
             RR_list.append(ms_dist)
             cnt += 1
         self.mean_hr_bpm_result = cnt

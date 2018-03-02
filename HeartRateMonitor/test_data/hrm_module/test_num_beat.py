@@ -8,5 +8,3 @@ def test_num_beat():
         duration(-5)
     with pytest.raises(TypeError):
         duration('number')
-    with pytest.raises(ImportError):
-        import MyLittlePony

@@ -8,5 +8,3 @@ def test_duration():
         duration(-2)
     with pytest.raises(TypeError):
         duration('time')
-    with pytest.raises(ImportError):
-        import MyLittlePony
