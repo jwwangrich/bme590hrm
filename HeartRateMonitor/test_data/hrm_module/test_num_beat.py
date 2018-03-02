@@ -1,7 +1,5 @@
-from MyHRM import Myhrm
-
-
 def test_num_beat():
+    from MyHRM.myhrm import num_beat
     import math
     import pytest
     numbeat_output_1 = num_beat([1, 2, 3, 4, 5])
