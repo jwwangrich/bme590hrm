@@ -2,7 +2,7 @@ from hrm_module.myhrm import Myhrm
 def test_duration():
     import math
     import pytest
-    from read import collection
+    from hrm_module.read import collection
     import numpy as np
     input1 = Myhrm(time = [1, 2, 3, 4, 5], voltage=[1, 2, 3, 4, 5], minutes=1.0)
     input2 = Myhrm(time=[1, 2, 3, 4, 5], voltage=[-2, -9, 43, 15, 10], minutes=1.0)
