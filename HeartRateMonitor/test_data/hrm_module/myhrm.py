@@ -130,3 +130,10 @@ class Myhrm(object):
             cnt += 1
         self.mean_hr_bpm_result = cnt
         return self.mean_hr_bpm_result
+
+    #def beat(self):
+    #    self.num_beats()
+
+    #    for i in self.corelate:
+    #        beat.append(i[1])
+    #    return beats

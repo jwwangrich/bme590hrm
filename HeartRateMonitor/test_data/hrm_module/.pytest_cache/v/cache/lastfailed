@@ -1,0 +1,5 @@
+{
+  "test_duration.py::test_duration": true,
+  "test_num_beat.py::test_num_beat": true,
+  "test_voltage_extrem.py::test_voltage_extreme": true
+}

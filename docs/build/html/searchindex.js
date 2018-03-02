@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["doc"],envversion:53,filenames:["doc.rst"],objects:{},objnames:{},objtypes:{},terms:{index:0,modul:0,page:0,search:0},titles:["Welcome to hrm_module\u2019s documentation!"],titleterms:{document:0,hrm_modul:0,indic:0,tabl:0,welcom:0}})
