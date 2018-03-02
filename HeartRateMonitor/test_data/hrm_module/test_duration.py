@@ -1,5 +1,7 @@
+from MyHRM import Myhrm
+
+
 def test_duration():
-    from MyHRM import Myhrm
     import math
     import pytest
     duration_output_1 = duration([1, 2, 3, 4, 5])

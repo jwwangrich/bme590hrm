@@ -4,7 +4,8 @@ import numpy as np
 import math
 import pandas as pd
 
-peak_indexes= ""
+peak_indexes = ""
+
 
 class Myhrm(object):
     """The summary line for a class docstring should fit on one line.
@@ -22,14 +23,16 @@ class Myhrm(object):
         voltage : the array of the raw data Voltage column
         minutes : user specified time
         peak_indexes : the ECG data peak index
-        voltage_extremes_result : find the min and max value of a given voltage array
+        voltage_extremes_result : find the min and max value of a given voltage
+        array
         duration_result : find the time duration of the ECG strip
         num_beat_result : number of detected beats in the strip
-        mean_hr_bpm_result : estimated average heart rate over a user-specified number of minutes
+        mean_hr_bpm_result : estimated average heart rate over a user-specified
+        number of minutes
         beat : numpy array of times when a beat occurred
     """
 
-    def __init__(self, time = None, voltage = None, minutes = 1.0):
+    def __init__(self, time=None, voltage=None, minutes=1.0):
         self.time = time
         self.voltage = voltage
         self.minutes = minutes
@@ -101,7 +104,8 @@ class Myhrm(object):
                 :param:  cnt: numbers of counts of the heart beats
                 :param:  RR_interval: heart beat interval
                 :param:  ms_dist: minutes rate
-                :returns: return the total numbers of heart beats in a given time(minutes), called BPM
+                :returns: return the total numbers of heart beats in a given time(minutes),
+                called BPM
                 :raises: ImportError
             """
         try:
@@ -121,7 +125,8 @@ class Myhrm(object):
         cnt = 0
         while (cnt < (len(peak_indexes) - 1)):
             RR_interval = (peak_indexes[cnt + 1] - peak_indexes[cnt])
-            ms_dist = ((RR_interval / self.duration_result) * 60 * self.minutes)
+            ms_dist = ((RR_interval / self.duration_result)
+                       * 60 * self.minutes)
             RR_list.append(ms_dist)
             cnt += 1
         self.mean_hr_bpm_result = cnt
